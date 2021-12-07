@@ -1,0 +1,39 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+  - name: install Python3
+    apt:
+      name: python3.8
+
+  - name: install pip3
+    apt:
+      name: python3-pip
+
+  - name: Install default-jre
+    apt:
+      name: default-jre
+
+  - name: Install default-jdk
+    apt:
+      name: default-jdk
+
+  - name: Message of the Day
+    debug:
+      msg: Ansible Managed node by {{user}}
+    vars:
+      user:
+        - Jayvee Racal
+
+  - name: User Data
+    debug:
+      msg: Hi my name is {{user}}, I Study in {{school}} and my course is {{course}}
+    vars:
+      user:
+        - Jayvee Racal
+      school:
+        - T.I.P. Qc
+      course:
+        - BSCpE
+
